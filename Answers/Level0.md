@@ -50,7 +50,9 @@
 
 11. 네트워크 프로토콜 스택과 iOS에서의 네트워크 통신 방식에 대해 설명해 주세요.
 - 네트워크 프로토콜 스택은 통신을 위한 계층화된 아키텍처를 제공하며, iOS는 TCP/IP 프로토콜 스택을 사용한다.
-- iOS 앱은 URL세션(`URLSession`) 등의 API를 통해 HTTP 요청을 보내고, TCP/IP 스택을 통해 데이터를 송수신한다.
+- iOS 앱은 URL세션(`URLSession`) 등의 API를 통해 HTTP(HyperText Transfer Protocol) 요청을 보내고, TCP/IP 스택을 통해 데이터를 송수신한다.
+- 통신을 위해 `URL`, `URLRequest`를 생성한 후, Task를 생성하여 resume 한다.
+- 기존엔 `JSONSerialization` 을 썼었으나 현재는 `JSONDecoder` 등을 활용하여 HTTP body를 파싱할 수 있다.
 
 12. HTTP와 HTTPS의 차이점, iOS에서의 보안 통신 방법에 대해 설명해 주세요.
 - HTTP는 암호화되지 않은 텍스트로 데이터를 전송하는 반면, HTTPS는 SSL/TLS 프로토콜을 사용하여 데이터를 암호화한다.

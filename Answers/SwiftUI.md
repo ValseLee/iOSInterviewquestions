@@ -2,12 +2,11 @@
 - 조건에 따라 그려지는 View의 제너릭 타입을 구조화할 수 있다.
 - 이 조건에 따라 암시적 ID를 제공해준다.
 ```swift
+// _ConditionalContent<EmptyView, View> // true, false
 var body: some View {
 	if users.isEmpty { EmptyView() }
 	else { View() }
 }
-
-_ConditionalContent<EmptyView, View> // true, false
 ```
 2. View Identity
 - View의 상태와 identity는 다르다.
@@ -24,3 +23,12 @@ _ConditionalContent<EmptyView, View> // true, false
 4. 명시적 Identity
 - 안정성: 명시적 ID는 성능에 도움을 준다. 저장소를 지속적으로 보관하거나 의존성 그래프를 유지할 수 있기 때문
 - 고유성: 고유하지 않으면 의도하지 않은 동작할 수 있다.
+
+5. MVVM
+- 비즈니스로직과 UI를 분리, 데이터 바인딩으로 통해 View-ViewModel 동기화를 자동화하는 아키텍쳐 패턴
+- 역할을 분리할 수 있고, 확장성과 재사용성, VM에 대한 테스트 용이성을 가질 수 있다.
+
+6. `@main`
+- App 프로토콜이 main 함수의 기본 구현을 제공한다.
+- App 프로토콜은 body가 Scene을 만족하길 요구하며, Scene의 단계를 Environment 에서 접근할 수 있다.
+- 애플리케이션의 시작점을 제공한다.
